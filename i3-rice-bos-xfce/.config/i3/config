@@ -25,7 +25,7 @@ client.unfocused        #333333 #333333 #FFFFFF #333333   #333333
 client.urgent           #2F343A #333333 #FFFFFF #333333   #333333
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
-exec --no-startup-id nitrogen $HOME/Scaricati/fallout-brotherhood-of-steel-43313-2560x1600.jpg --set-centered &
+exec --no-startup-id nitrogen $HOME/.config/i3/bos.jpg --set-centered &
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
