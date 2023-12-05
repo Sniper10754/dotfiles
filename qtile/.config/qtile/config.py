@@ -141,6 +141,7 @@ layouts = [
         border_width=GAPS,
         border_focus=colors.background,
         border_normal=colors.background,
+        margin = 5
     ),
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=GAPS),
     layout.Max(),
@@ -157,11 +158,11 @@ layouts = [
     # layout.Zoomy(),
 ]
 
-widget_defaults = dict(
-    font=FONT,
-    fontsize=FONT_SIZE,
-    padding=8,
-)
+widget_defaults = {
+    "font": FONT,
+    "fontsize": FONT_SIZE,
+    "padding": 8,
+}
 
 extension_defaults = widget_defaults.copy()
 
@@ -199,6 +200,9 @@ screens = [
             size = 24,
             background = colors.background,
         ),
+        right=bar.Gap(10),
+        left=bar.Gap(10),
+        bottom=bar.Gap(10),
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
         # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
