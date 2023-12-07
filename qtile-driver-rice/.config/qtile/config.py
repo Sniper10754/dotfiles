@@ -48,7 +48,7 @@ DOWN = "down"
 UP = "up"
 
 TERMINAL = guess_terminal(preference = "kitty")
-LAUNCHER = "ulauncher"
+LAUNCHER = ["rofi", "-show", "drun"]
 COMPOSITOR = ["picom"]
 MOD = "mod4"
 
