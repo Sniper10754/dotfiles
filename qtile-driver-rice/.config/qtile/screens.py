@@ -1,34 +1,20 @@
 from libqtile.config import Screen
 from libqtile import bar, widget
 
+from qtile_extras import widget as extra_widget
+
+from pathlib import Path
+
+import widgets
+import commands
 import appearance
+
 
 PRIMARY_SCREEN = Screen(
     wallpaper=appearance.WALLPAPER_PATH,
     wallpaper_mode="fill",
     top=bar.Bar(
-        [
-            widget.CurrentLayout(
-                background=appearance.purple
-            ),
-            widget.GroupBox(
-                active=appearance.yellow,
-                highlight_method="line"
-            ),
-
-            widget.Spacer(),
-            widget.WindowName(),
-            widget.Spacer(),
-
-            widget.Battery(
-                format="{percent:2.0%}",
-                update_interval=10,
-
-                background=appearance.green,
-            ),
-            widget.StatusNotifier(),
-            widget.Clock(format="%Y-%m-%d %a %I:%M %p")
-        ],
+        widgets.PRIMARY_SCREEN_WIDGETS,
         size=24,
         background=appearance.background,
     ),
@@ -45,11 +31,7 @@ SECONDARY_SCREEN = Screen(
     wallpaper=appearance.WALLPAPER_PATH,
     wallpaper_mode="fill",
     top=bar.Bar(
-        [
-            widget.Spacer(),
-
-            widget.Clock(format="%Y-%m-%d %a %I:%M %p")
-        ],
+        [widget.Spacer(), widget.Clock(format="%Y-%m-%d %a %I:%M %p")],
         size=24,
         background=appearance.background,
     ),
@@ -61,4 +43,3 @@ SECONDARY_SCREEN = Screen(
     # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
     x11_drag_polling_rate=60,
 )
-

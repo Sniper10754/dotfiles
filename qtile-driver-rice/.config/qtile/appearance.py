@@ -2,15 +2,17 @@ from pathlib import Path
 
 import homedir_constants
 
-# Window manager gaps
+# Window manager properties
 
-WIN_BORDER_WIDTH = 4
+GAPS = 5
+WIN_BORDER_WIDTH = 2
+WIN_BORDER_COLOR_NORMAL = background
+WIN_BORDER_COLOR_FOCUSED = gray
 
 FONT = "Iosevka Nerd Font"
 FONT_SIZE = 15
 
-WALLPAPER_PATH = Path.joinpath(
-    homedir_constants.CONFIG_DIR, "wallpaper-gruvbox.png")
+WALLPAPER_PATH = Path.joinpath(homedir_constants.CONFIG_DIR, "wallpaper-gruvbox.png")
 
 # Gruvbox Dark mode
 # https://github.com/morhetz/gruvbox

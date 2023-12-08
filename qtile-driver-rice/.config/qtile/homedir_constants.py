@@ -4,9 +4,4 @@ import os
 
 USER_HOME = Path(os.getcwd())
 
-CONFIG_DIR = Path.joinpath(
-    USER_HOME,
-    ".config",
-    "qtile"
-)
-
+CONFIG_DIR = Path.joinpath(USER_HOME, ".config", "qtile")
