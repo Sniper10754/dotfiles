@@ -9,6 +9,7 @@ import widgets
 import commands
 import appearance
 
+X11_DRAG_POLLING_RATE = 60
 
 PRIMARY_SCREEN = Screen(
     wallpaper=appearance.WALLPAPER_PATH,
@@ -24,14 +25,14 @@ PRIMARY_SCREEN = Screen(
     # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
     # By default we handle these events delayed to already improve performance, however your system might still be struggling
     # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-    x11_drag_polling_rate=60,
+    x11_drag_polling_rate=X11_DRAG_POLLING_RATE,
 )
 
 SECONDARY_SCREEN = Screen(
-    wallpaper=appearance.WALLPAPER_PATH,
+    wallpaper=str(appearance.WALLPAPER_PATH),
     wallpaper_mode="fill",
     top=bar.Bar(
-        [widget.Spacer(), widget.Clock(format="%Y-%m-%d %a %I:%M %p")],
+        widgets.SECONDARY_SCREEN_WIDGETS,
         size=24,
         background=appearance.background,
     ),
@@ -41,5 +42,5 @@ SECONDARY_SCREEN = Screen(
     # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
     # By default we handle these events delayed to already improve performance, however your system might still be struggling
     # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-    x11_drag_polling_rate=60,
+    x11_drag_polling_rate=X11_DRAG_POLLING_RATE,
 )

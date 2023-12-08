@@ -19,7 +19,11 @@ BRIGHTNESS_STEP = 10
 INCREASE_BRIGHTNESS_CMD = ["brightnessctl", "set", f"+{BRIGHTNESS_STEP}%"]
 DECREASE_BRIGHTNESS_CMD = ["brightnessctl", "set", f"{BRIGHTNESS_STEP}%-"]
 
+# Programs
+
 TERMINAL_CMD = [guess_terminal(preference="kitty")]
-LAUNCHER_CMD = [str(Path.joinpath(homedir_constants.USER_HOME, ".cargo/bin/frozen-launcher"))]
+LAUNCHER_CMD = [
+    str(Path.joinpath(homedir_constants.USER_HOME, ".cargo/bin/frozen-launcher"))
+]
 
 COMPOSITOR_CMD = ["picom"]

@@ -1,4 +1,4 @@
-from libqtile.config import Group, Key
+from libqtile.config import Group, Key, Click, Drag
 from libqtile.lazy import lazy
 
 import commands
@@ -14,9 +14,7 @@ keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key(
-        [MOD], LEFT_KEY, lazy.layout.left(), desc="Move focus to left"
-    ),
+    Key([MOD], LEFT_KEY, lazy.layout.left(), desc="Move focus to left"),
     Key(
         [MOD],
         RIGHT_KEY,
@@ -65,9 +63,7 @@ keys = [
         lazy.layout.grow_right(),
         desc="Grow window to the right",
     ),
-    Key(
-        [MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"
-    ),
+    Key([MOD, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([MOD, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([MOD], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Key([keys.MOD, "space"], lazy.layout.floating_enable(), desc="Set window to floating keys.MODe"),
@@ -104,9 +100,7 @@ keys = [
     ),
     Key([MOD, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([MOD, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key(
-        [MOD], "r", lazy.spawn(commands.LAUNCHER_CMD), desc="Run the launcher"
-    ),
+    Key([MOD], "r", lazy.spawn(commands.LAUNCHER_CMD), desc="Run the launcher"),
     Key([], "XF86AudioRaiseVolume", lazy.spawn(commands.RAISE_PULSEAUDIO_VOLUME)),
     Key([], "XF86AudioLowerVolume", lazy.spawn(commands.LOWER_PULSEAUDIO_VOLUME)),
     Key([], "XF86AudioMute", lazy.spawn(commands.MUTE_PULSEAUDIO_CMD)),
@@ -139,3 +133,19 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
+
+mouse = [
+    Drag(
+        [MOD],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [MOD],
+        "Button3",
+        lazy.window.set_size_floating(),
+        start=lazy.window.get_size(),
+    ),
+    Click([MOD], "Button2", lazy.window.bring_to_front()),
+]

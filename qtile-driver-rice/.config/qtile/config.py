@@ -5,7 +5,7 @@ from libqtile import hook
 import subprocess
 
 import screens as cfg_screens
-from keybinds import keys, groups
+from keybinds import mouse, keys, groups
 import appearance
 import commands
 from layout import layouts, floating_layout
@@ -30,21 +30,7 @@ screens = [cfg_screens.PRIMARY_SCREEN]
 #     screens.append()
 
 # Drag floating layouts.
-mouse = [
-    Drag(
-        [keybinds.MOD],
-        "Button1",
-        lazy.window.set_position_floating(),
-        start=lazy.window.get_position(),
-    ),
-    Drag(
-        [keybinds.MOD],
-        "Button3",
-        lazy.window.set_size_floating(),
-        start=lazy.window.get_size(),
-    ),
-    Click([keybinds.MOD], "Button2", lazy.window.bring_to_front()),
-]
+
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
