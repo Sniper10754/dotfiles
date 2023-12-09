@@ -37,8 +37,7 @@ stow qtile-driver-rice
 
 - Install `brightnessctl` for the brightness switches on your keyboard and the backlight widget on the qtile bar
 
-- Install `libpulse` library (*Installed by default if you have pulse audio*) for adjusting the volume using the volume switches or the widget (scrolling on it)
-- Also install the pip package `pulsectl_asyncio` for the volume widget
+- Install `libpulse` library (*Installed by default if you have pulse audio*) and the pip package `pulsectl_asyncio` both for adjusting the volume using the volume switches or the widget (scrolling on it)
 
 - Change the compositor in `commands.py` or install the default one, `picom` (Check out my picom config!)
 

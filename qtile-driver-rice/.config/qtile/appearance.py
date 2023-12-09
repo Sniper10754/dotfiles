@@ -39,5 +39,4 @@ widget_defaults = {
     "padding": 8,
 }
 
-
-
+extension_defaults = widget_defaults.copy()

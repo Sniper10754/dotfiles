@@ -8,17 +8,14 @@ from qtile_extras import widget as extra_widget
 
 from textwrap import dedent
 from pathlib import Path
-import subprocess
-import json
  
 import widgets
-import commands
 import appearance
 
 X11_DRAG_POLLING_RATE = 144 
 
 PRIMARY_SCREEN = Screen(
-    wallpaper=appearance.WALLPAPER_PATH,
+    wallpaper=str(appearance.WALLPAPER_PATH),
     wallpaper_mode="fill",
     top=bar.Bar(
         widgets.PRIMARY_SCREEN_WIDGETS,
