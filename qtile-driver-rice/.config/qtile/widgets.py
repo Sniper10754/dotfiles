@@ -5,19 +5,30 @@ from pathlib import Path
 
 import appearance
 
-backlight_name = next(Path("/sys/class/backlight").iterdir())
-wifi_interface = next(
-    filter(
-        lambda path: "wlp" in path.name or "wlan" in path.name,
-        Path("/sys/class/net/").iterdir(),
+try:
+    backlight_name = next(Path("/sys/class/backlight").iterdir())
+except StopIteration:
+    backlight_name = None
+
+try:
+    wifi_interface = next(
+        filter(
+            lambda path: "wlp" in path.name or "wlan" in path.name,
+            Path("/sys/class/net/").iterdir(),
+        )
     )
-)
-battery_name = next(
-    filter(
-        lambda power_supply: "BAT" in power_supply.name,
-        Path("/sys/class/power_supply").iterdir(),
+except StopIteration:
+    wifi_interface = None
+
+try:
+    battery_name = next(
+        filter(
+            lambda power_supply: "BAT" in power_supply.name,
+            Path("/sys/class/power_supply").iterdir(),
+        )
     )
-)
+except StopIteration:
+    battery_name = None
 
 PRIMARY_SCREEN_WIDGETS = [
     widget.CurrentLayout(background=appearance.purple),
@@ -38,16 +49,14 @@ PRIMARY_SCREEN_WIDGETS = [
         update_interval=10,
         background=appearance.green,
         low_background=appearance.red,
-    ),
+    ) if battery_name != None else widget.Spacer(0),
     widget.Backlight(
         background=appearance.gray,
         fmt="BACKLIGHT: {}",
         step=3,
         change_command="brightnessctl s {0}%",
         backlight_name=backlight_name,
-    )
-    if backlight_name != None
-    else widget.Spacer(0),
+    ) if backlight_name != None else widget.Spacer(0),
     widget.Clock(
         format="%Y-%m-%d %a %I:%M %p",
     ),

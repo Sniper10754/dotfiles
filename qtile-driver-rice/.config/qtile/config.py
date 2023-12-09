@@ -1,30 +1,23 @@
 from libqtile.config import Click, Drag, Group, Key, Match
 from libqtile.lazy import lazy
 from libqtile import hook
+from libqtile import qtile
 
 import subprocess
 
-import screens as cfg_screens
+from screens import screens
 from keybinds import mouse, keys, groups
+from appearance import widget_defaults
 import appearance
 import commands
 from layout import layouts, floating_layout
 
-
 @hook.subscribe.startup
 def _():
-    subprocess.Popen(commands.COMPOSITOR_CMD)
-
-
-widget_defaults = {
-    "font": appearance.FONT,
-    "fontsize": appearance.FONT_SIZE,
-    "padding": 8,
-}
+    if qtile.core.name == "x11":
+        subprocess.Popen(commands.COMPOSITOR_CMD)
 
 extension_defaults = widget_defaults.copy()
-
-screens = [cfg_screens.PRIMARY_SCREEN]
 
 # for _ in range(1):
 #     screens.append()

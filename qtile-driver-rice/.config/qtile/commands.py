@@ -23,7 +23,7 @@ DECREASE_BRIGHTNESS_CMD = ["brightnessctl", "set", f"{BRIGHTNESS_STEP}%-"]
 
 TERMINAL_CMD = [guess_terminal(preference="kitty")]
 LAUNCHER_CMD = [
-    str(Path.joinpath(homedir_constants.USER_HOME, ".cargo/bin/frozen-launcher"))
+        "rofi", "-show", "drun"
 ]
 
 COMPOSITOR_CMD = ["picom"]
