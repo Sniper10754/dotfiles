@@ -1,4 +1,5 @@
 from pathlib import Path
+from copy import deepcopy
 
 from libqtile import widget
 from qtile_extras import widget as extra_widget
@@ -31,10 +32,6 @@ except StopIteration:
     battery_name = None
 
 NULL_SPACER = widget.Spacer(0)
-
-CURRENT_LAYOUT_WIDGET = widget.CurrentLayout(
-    background=appearance.purple
-)
 
 PULSEAUDIO_WIDGET = widget.PulseVolume(
     fmt="VOLUME: {}", 
@@ -75,7 +72,9 @@ SEP = widget.Sep(
 )
 
 PRIMARY_SCREEN_WIDGETS = [
-    CURRENT_LAYOUT_WIDGET,
+    widget.CurrentLayout(
+        background=appearance.purple
+    ),
     widget.GroupBox(
         block_highlight_text_color=appearance.yellow,
 
@@ -95,6 +94,9 @@ PRIMARY_SCREEN_WIDGETS = [
 ]
 
 SECONDARY_SCREEN_WIDGETS = [
+    widget.CurrentLayout(
+        background=appearance.purple
+    ),
     widget.Spacer(),
     widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
 ]

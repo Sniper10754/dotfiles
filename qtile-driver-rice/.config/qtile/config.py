@@ -1,6 +1,7 @@
 from libqtile import hook
 from libqtile import qtile
 
+from pathlib import Path
 import subprocess
 
 from screens import screens
@@ -11,8 +12,13 @@ from layout import layouts, floating_layout
 
 @hook.subscribe.startup
 def _():
+    # Start X11 Compositor
     if qtile.core.name == "x11":
         subprocess.Popen(commands.COMPOSITOR_CMD)
+    
+    # Unlock KWallet if present
+    if Path("/usr/lib/pam_kwallet_init").exists:
+        subprocess.Popen("/usr/lib/pam_kwallet_init")
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
