@@ -7,6 +7,8 @@ layouts = [
     layout.Columns(
         border_focus_stack=[appearance.purple, appearance.gray],
         border_width=appearance.WIN_BORDER_WIDTH,
+        border_focus=appearance.WIN_BORDER_COLOR_FOCUSED,
+        border_normal=appearance.WIN_BORDER_COLOR_NORMAL,
         margin=appearance.GAPS,
     ),
     layout.Tile(

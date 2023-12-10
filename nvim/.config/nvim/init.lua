@@ -15,12 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Set up plugins
 require('lazy').setup({
+	'ellisonleao/gruvbox.nvim',
 	'preservim/nerdtree',
 	'simrat39/rust-tools.nvim',
 	'neovim/nvim-lspconfig',
 	'vim-airline/vim-airline',
 	'vim-airline/vim-airline-themes',
-	'Mofiqul/dracula.nvim',
 	'chikko80/error-lens.nvim',
 	'nvim-telescope/telescope.nvim',
 })
@@ -32,16 +32,16 @@ require("error-lens").setup(client, {
 
 vim.cmd([[
 set number
-set mouse=
 
-colorscheme dracula
+colorscheme gruvbox
 
-AirlineTheme base16_dracula
+AirlineTheme base16_gruvbox_dark_medium
 let g:airline_powerline_fonts = 1
 ]])
 
 -- Setup language servers
 local lspconfig = require('lspconfig')
+
 lspconfig.pyright.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.rust_analyzer.setup {}
