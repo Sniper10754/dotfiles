@@ -16,7 +16,6 @@ layouts = [
         margin=appearance.GAPS,
     ),
     layout.Floating(),
-
     # Try more layouts by unleashing below layouts.
     # layout.Max(),
     # layout.Stack(num_stacks=2),

@@ -10,15 +10,17 @@ from appearance import widget_defaults, extension_defaults
 import commands
 from layout import layouts, floating_layout
 
+
 @hook.subscribe.startup
 def _():
     # Start X11 Compositor
     if qtile.core.name == "x11":
         subprocess.Popen(commands.COMPOSITOR_CMD)
-    
+
     # Unlock KWallet if present
     if Path("/usr/lib/pam_kwallet_init").exists:
         subprocess.Popen("/usr/lib/pam_kwallet_init")
+
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list

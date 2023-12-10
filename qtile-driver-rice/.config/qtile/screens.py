@@ -8,11 +8,11 @@ from qtile_extras import widget as extra_widget
 
 from textwrap import dedent
 from pathlib import Path
- 
+
 import widgets
 import appearance
 
-X11_DRAG_POLLING_RATE = 144 
+X11_DRAG_POLLING_RATE = 144
 
 PRIMARY_SCREEN = Screen(
     wallpaper=str(appearance.WALLPAPER_PATH),
@@ -43,5 +43,3 @@ SECONDARY_SCREEN = Screen(
 )
 
 screens = [PRIMARY_SCREEN, SECONDARY_SCREEN]
-
-
