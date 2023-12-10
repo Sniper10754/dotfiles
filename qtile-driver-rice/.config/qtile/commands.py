@@ -22,6 +22,8 @@ DECREASE_BRIGHTNESS_CMD = ["brightnessctl", "set", f"{BRIGHTNESS_STEP}%-"]
 # Programs
 
 TERMINAL_CMD = [guess_terminal(preference="kitty")]
-LAUNCHER_CMD = ["rofi", "-show", "drun"]
+LAUNCHER_CMD = [
+    "rofi", "-i", "-show", "drun", "-modi", "drun", "-show-icons"
+]
 
 COMPOSITOR_CMD = ["picom"]

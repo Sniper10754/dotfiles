@@ -19,7 +19,7 @@ PRIMARY_SCREEN = Screen(
     wallpaper_mode="fill",
     top=bar.Bar(
         widgets.PRIMARY_SCREEN_WIDGETS,
-        size=24,
+        size=appearance.BAR_SIZE,
         background=appearance.background,
     ),
     # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
@@ -33,7 +33,7 @@ SECONDARY_SCREEN = Screen(
     wallpaper_mode="fill",
     top=bar.Bar(
         widgets.SECONDARY_SCREEN_WIDGETS,
-        size=24,
+        size=appearance.BAR_SIZE,
         background=appearance.background,
     ),
     # You can uncomment this variable if you see that on X11 floating resize/moving is laggy

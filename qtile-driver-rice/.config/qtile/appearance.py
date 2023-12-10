@@ -22,8 +22,11 @@ aqua = "#8ec07c"
 
 # Window manager properties
 
-GAPS = 5
-WIN_BORDER_WIDTH = 2
+GAPS = 10
+
+BAR_SIZE = 30
+
+WIN_BORDER_WIDTH = 1 
 WIN_BORDER_COLOR_NORMAL = background
 WIN_BORDER_COLOR_FOCUSED = gray
 
